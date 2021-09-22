@@ -1,13 +1,43 @@
 <template>
-  
+  <div class="d-flex flex-column text-center">
+      <img :src="diskInfo.poster" :alt="diskInfo.title + diskInfo.author">
+      <h2>
+          {{diskInfo.title}}
+      </h2>
+      <span>
+          {{diskInfo.author}}
+      </span>
+      <span>
+          {{diskInfo.year}}
+      </span>
+  </div>
 </template>
 
 <script>
 export default {
+    name:'Disk',
+    props: ['diskInfo']
 
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '../assets/style/general.scss';
 
-</style>
+div {
+    background-color: $lighterGray;
+    color: #808080;
+    min-height: 200px;
+    font-size: .6rem;
+    margin: 10px 0;
+}
+h2 {
+    color: white;
+    font-size: 1rem;
+
+}
+img {
+    padding: 10px;
+    object-fit: cover;
+}
+</style>>

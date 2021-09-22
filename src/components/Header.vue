@@ -16,10 +16,10 @@ export default {
 
 header{
   background-color: $lighterGray;
-  height: 60px;
+  height: 40px;
   
   img{
-    height: 50px;
+    height: 35px;
   }
 }
 </style>
