@@ -1,7 +1,7 @@
 <template>
   <section class="container-fluid d-flex flex-column align-items-center justify-content-center">
       <div class="row d-flex align-items-center justify-content-center" v-for=" i in Math.ceil(albums.length / 5 )" :key="i" >
-          <div v-for="(disk, i) in albums.slice((i - 1) * 5, i * 5)" :key="i" class="col-2">
+          <div v-for="(disk, i) in albums.slice((i - 1) * 5, i * 5)" :key="i" class="col-2 mx-2">
               <Disk 
                 :diskInfo="disk"
               />

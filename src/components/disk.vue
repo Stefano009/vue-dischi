@@ -27,13 +27,15 @@ export default {
 div {
     background-color: $lighterGray;
     color: #808080;
-    min-height: 200px;
+    min-height: 210px;
+    min-width: 115px;
     font-size: .6rem;
-    margin: 10px 0;
+    margin: 5px 10px;
 }
 h2 {
     color: white;
     font-size: 1rem;
+    font-weight: 700;
 
 }
 img {

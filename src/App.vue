@@ -20,5 +20,7 @@ export default {
 
 <style lang="scss">
 @import './assets/style/general.scss';
-
+body {
+  font-family: 'Montserrat';
+}
 </style>
