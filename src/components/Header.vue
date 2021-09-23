@@ -1,12 +1,36 @@
 <template>
   <header>
     <img class="m-1" src="../assets/img/spotify.png" alt="spotify icon">
+    <div class="selectors">
+      <select v-model="selected">
+        <option v-for="(genre , index) in genres" :key="index" :value="genre.value">{{genre.value}}</option>
+      </select>
+    </div>
   </header>
 </template>
 
 <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+      selected:'Filtra per genere',
+      genres: [
+        {
+          value: 'Filtra per genere'
+        },
+        {
+          value: 'Metal'
+        },
+        {
+          value: 'Pop'
+        },
+        {
+          value: 'Jazz'
+        },
+      ]
+    }
+  }
 }
 </script>
 
@@ -17,9 +41,17 @@ export default {
 header{
   background-color: $lighterGray;
   height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
   
   img{
     height: 35px;
+  }
+  .selectors {
+    margin:0 15px;
+    font-size: .6rem;
   }
 }
 </style>
