@@ -17,7 +17,10 @@ export default {
       selected:'Filtra per genere',
       genres: [
         {
-          value: 'Filtra per genere'
+          value: ''
+        },
+        {
+          value: 'Rock'
         },
         {
           value: 'Metal'

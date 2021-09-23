@@ -1,17 +1,15 @@
 <template>
   <section>
       <div v-if="!loading" class="container-fluid d-flex flex-column align-items-center justify-content-center">
-            <div  class="row d-flex align-items-center justify-content-center" v-for=" i in Math.ceil(albums.length / 5 )" :key="i" >
-                <div v-for="(disk, i) in albums.slice((i - 1) * 5, i * 5)" :key="i" class="col-2 mx-2">
+            <div  class="row d-flex align-items-center justify-content-center" v-for=" i in Math.ceil(filterAlbumsPerGenre.length / 5 )" :key="i" >
+                <div v-for="(disk, i) in filterAlbumsPerGenre.slice((i - 1) * 5, i * 5)" :key="i" class="col-2 mx-2">
                     <Disk 
                         :diskInfo="disk"
                     />
+
                 </div>
             </div>
             <div>
-                <h1>
-                    {{genreReceived}}
-                </h1>
             </div>
       </div>
 
@@ -30,21 +28,38 @@ export default {
         Disk,
         Loader,        
     },
-    props: ['genreReceived'],
+    props: {
+        genreReceived: String,
+    },
     data() {
         return {
             APIUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
             albums: [],
             loading: true,
+            
 
         }
     },
     created() {
         this.getAlbums();
     },
+    computed: {
+        // filterObject(){
+        //     return this.genreReceived;
+        // },
+        filterAlbumsPerGenre() {
+            if(this.genreReceived == '') 
+                return this.albums
+            
+            let filteredAlbumList = this.albums.filter( item => {
+                return item.genre == this.genreReceived
+            })
+            console.log(this.filter)
+            return filteredAlbumList;
+        }
+    },
     methods: {
         getAlbums() {
-
             axios
                 .get(this.APIUrl)
                 .then (res => {
