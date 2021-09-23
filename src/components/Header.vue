@@ -2,8 +2,8 @@
   <header>
     <img class="m-1" src="../assets/img/spotify.png" alt="spotify icon">
     <div class="selectors">
-      <select v-model="selected">
-        <option v-for="(genre , index) in genres" :key="index" :value="genre.value">{{genre.value}}</option>
+      <select @change="$emit('filterString', selected)" v-model="selected">
+        <option  v-for="(genre , index) in genres" :key="index" :value="genre.value">{{genre.value}}</option>
       </select>
     </div>
   </header>
@@ -30,7 +30,14 @@ export default {
         },
       ]
     }
-  }
+  },
+
+  // methods:{
+  //   filterString() {
+  //     console.log(this.selected);
+  //     return this.$emit('selectGenre', this.selected)
+  //   }
+  // }
 }
 </script>
 

@@ -1,7 +1,11 @@
 <template>
   <div>
-    <Header />
-    <Main />
+    <Header
+     @filterString="genreDigester"
+    />
+    <Main
+      :genreReceived="genreDigested"
+     />
    
 
   </div>
@@ -14,9 +18,19 @@ import Main from './components/Main.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      genreDigested: '',
+    }
+  },
   components: {
     Header,
     Main,
+  },
+  methods: {
+    genreDigester(text) {
+      return this.genreDigested = text;
+    }
   }
 }
 </script>

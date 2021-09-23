@@ -8,6 +8,11 @@
                     />
                 </div>
             </div>
+            <div>
+                <h1>
+                    {{genreReceived}}
+                </h1>
+            </div>
       </div>
 
        <Loader v-else />
@@ -25,6 +30,7 @@ export default {
         Disk,
         Loader,        
     },
+    props: ['genreReceived'],
     data() {
         return {
             APIUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
