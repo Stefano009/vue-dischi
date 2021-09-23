@@ -2,9 +2,11 @@
   <div>
     <Header
      @filterString="genreDigester"
+     @filterName="nameDigester"
     />
     <Main
       :genreReceived="genreDigested"
+      :nameReceived="nameDigested"
      />
    
 
@@ -21,6 +23,7 @@ export default {
   data() {
     return {
       genreDigested: '',
+      nameDigested: '',
     }
   },
   components: {
@@ -30,6 +33,9 @@ export default {
   methods: {
     genreDigester(text) {
       return this.genreDigested = text;
+    },
+    nameDigester(text) {
+      return this.nameDigested = text;
     }
   }
 }

@@ -5,6 +5,9 @@
       <select @change="$emit('filterString', selected)" v-model="selected">
         <option  v-for="(genre , index) in genres" :key="index" :value="genre.value">{{genre.value}}</option>
       </select>
+      <select @change="$emit('filterName', selectedName)" v-model="selectedName">
+        <option  v-for="(bandName , index) in bandNames" :key="index" :value="bandName.value">{{bandName.value}}</option>
+      </select>
     </div>
   </header>
 </template>
@@ -14,7 +17,43 @@ export default {
   name: 'Header',
   data() {
     return {
-      selected:'Filtra per genere',
+      selected:'',
+      selectedName: '',
+      bandNames:[
+        {
+          value: ''
+        },
+        {
+        value: 'Bon Jovi'
+        },
+        {
+        value: 'Queen'
+        },
+        {
+        value: 'Sting'
+        },
+        {
+        value: 'Steve Gadd Band'
+        },
+        {
+        value: 'Iron Maiden'
+        },
+        {
+        value: 'Eric Clapton'
+        },
+        {
+        value: 'Deep Purple'
+        },
+        {
+        value: 'Metallica'
+        },
+        {
+        value: 'Dave Weckl'
+        },
+        {
+        value: 'Michael Jacjson'
+      }
+      ],
       genres: [
         {
           value: ''
@@ -62,6 +101,9 @@ header{
   .selectors {
     margin:0 15px;
     font-size: .6rem;
+    select {
+      margin:0 10px;
+    }
   }
 }
 </style>

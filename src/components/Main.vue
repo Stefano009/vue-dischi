@@ -1,8 +1,8 @@
 <template>
   <section>
       <div v-if="!loading" class="container-fluid d-flex flex-column align-items-center justify-content-center">
-            <div  class="row d-flex align-items-center justify-content-center" v-for=" i in Math.ceil(filterAlbumsPerGenre.length / 5 )" :key="i" >
-                <div v-for="(disk, i) in filterAlbumsPerGenre.slice((i - 1) * 5, i * 5)" :key="i" class="col-2 mx-2">
+            <div  class="row d-flex align-items-center justify-content-center" v-for=" i in Math.ceil(filterBandPername.length / 5 )" :key="i" >
+                <div v-for="(disk, i) in filterBandPername.slice((i - 1) * 5, i * 5)" :key="i" class="col-2 mx-2">
                     <Disk 
                         :diskInfo="disk"
                     />
@@ -30,6 +30,7 @@ export default {
     },
     props: {
         genreReceived: String,
+        nameReceived: String,
     },
     data() {
         return {
@@ -56,6 +57,18 @@ export default {
             })
             console.log(this.filter)
             return filteredAlbumList;
+        },
+        filterBandPername() {
+            if(this.nameReceived == '') 
+{    
+    console.log(this.nameReceived)            
+    console.log(this.genreReceived)            
+    return this.filterAlbumsPerGenre;
+}            
+            let filteredBandNameList = this.filterAlbumsPerGenre.filter( item => {
+                return item.author == this.nameReceived
+            })
+            return filteredBandNameList;
         }
     },
     methods: {
